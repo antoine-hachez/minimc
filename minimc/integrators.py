@@ -55,6 +55,11 @@ def leapfrog(q, p, dVdq, path_len, step_size):
     q, p : np.floatX, np.floatX
         New position and momentum
     """
+
+    # q : position -> 0
+    # p : momentum, speed -> random init
+    # potential : height. complex function that we can locally evaluate and take the derivative of.
+    # dVdq = grad(potential) -> opposite of direction we have the tendency to go. acceleration
     q, p = np.copy(q), np.copy(p)
 
     p -= step_size * dVdq(q) / 2  # half step

@@ -6,6 +6,7 @@ __all__ = ["neg_log_normal", "neg_log_mvnormal", "mixture", "neg_log_funnel"]
 
 def neg_log_normal(mu, sigma):
     """
+    the negative of the log of the normal pdf
     logp(x | mu, sigma) = 0.5 * log(2π) + log(σ) + 0.5 * ((x - μ)/σ)^2
     """
 

@@ -66,8 +66,8 @@ def hamiltonian_monte_carlo(
         )
 
         # Check Metropolis acceptance criterion
-        start_log_p = np.sum(momentum.logpdf(p0)) - negative_log_prob(samples[-1])
-        new_log_p = np.sum(momentum.logpdf(p_new)) - negative_log_prob(q_new)
+        start_log_p = np.sum(momentum.logpdf(p0)) - negative_log_prob(samples[-1])  # =log(proba(start momentum) * proba(start position) ), proba to be in the initial state (p, q)
+        new_log_p = np.sum(momentum.logpdf(p_new)) - negative_log_prob(q_new)  # = proba to be in the end state (p, q)
         p_accept = min(1, np.exp(new_log_p - start_log_p))
         if np.random.rand() < p_accept:
             samples.append(q_new)
